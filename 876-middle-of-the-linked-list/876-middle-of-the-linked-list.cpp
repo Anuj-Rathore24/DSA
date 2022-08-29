@@ -12,13 +12,12 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
         vector<ListNode*> st;
-        struct ListNode *temp=head;
-        while(temp){
-            st.push_back(temp);
-            temp=temp->next;
+        struct ListNode *slow=head, *fast=head;
+        while(fast){
+            if(fast->next==nullptr||fast==nullptr) break;
+            fast=fast->next->next;
+            slow=slow->next;
         }
-        int middle=st.size()/2;
-        ListNode * result=st.at(middle);
-        return result;
+        return slow;
     }
 };
