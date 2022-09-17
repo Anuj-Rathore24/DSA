@@ -9,9 +9,6 @@ public:
         for(int i=0;i<nums.size();i++){
             currElement=nums.at(i);
             table.insert({target-currElement,i});
-        }
-        for(int i=0;i<nums.size();i++){
-            currElement=nums.at(i);
             itr=table.find(currElement);
             if(itr!=table.end()&&itr->second!=i){
                 result.push_back(itr->second);
