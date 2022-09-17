@@ -1,27 +1,25 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-    vector<int> result;
-    int ind = 0, indTwo = 0, flag = 0;
-
-    for (int x : nums)
-    {
-        if (flag)
-            break;
-        for (int y : nums)
-        {
-            if (x + y == target && ind!=indTwo)
-            {
-                result.push_back(ind);
-                result.push_back(indTwo);
-                flag = 1;
-                break;
-            }
-            indTwo++;
+        unordered_map<int,int> table;
+        unordered_map<int, int>::iterator itr;
+        vector<int> result;
+        int currElement;
+        
+        for(int i=0;i<nums.size();i++){
+            currElement=nums.at(i);
+            table.insert({target-currElement,i});
         }
-        ind++;
-        indTwo = 0;
-    }
+        for(int i=0;i<nums.size();i++){
+            currElement=nums.at(i);
+            itr=table.find(currElement);
+            if(itr!=table.end()&&itr->second!=i){
+                result.push_back(itr->second);
+                result.push_back(i);
+                return result;
+            }
+        }
+        
         return result;
     }
 };
