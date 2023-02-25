@@ -1,0 +1,7 @@
+Here we will use three pointers i, j and k... 
+i=m-1, j=n-1, k=m+n-1
+
+k index will start from extreme right and replace zeroes with desired number according to 2 condition greater than and less than.
+
+greater than -: if jth element is greater than ith element than it would certainly be greater than all the numbers before that(as array is sorted) and hence like this we will iterate the array
+less than or equal to-: here we will shift the ith element with kth position  
